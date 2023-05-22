@@ -30,16 +30,19 @@ public class InsertRecordToDB {
 				// Step 2:Create a statement using connection object
 				PreparedStatement preparedStatement = connection.prepareStatement(Util.INSERT_JOURNEYS_SQL)) {
 			connection.setAutoCommit(false);
+			
+			// journeys.size()
 			for (int i = 0; i < journeys.size(); i++) {
 				if (journeys.get(i).getCovered_distance() > 10 && journeys.get(i).getDuration() > 10) {
-					preparedStatement.setString(1, journeys.get(i).getDeparture());
-					preparedStatement.setString(2, journeys.get(i).getReturnn());
-					preparedStatement.setString(3, journeys.get(i).getDeparture_station_id());
-					preparedStatement.setString(4, journeys.get(i).getDeparture_station_name());
-					preparedStatement.setString(5, journeys.get(i).getReturn_station_id());
-					preparedStatement.setString(6, journeys.get(i).getReturn_station_name());
-					preparedStatement.setDouble(7, journeys.get(i).getCovered_distance());
-					preparedStatement.setInt(8, journeys.get(i).getDuration());
+					preparedStatement.setLong(1, Util.JOURNEY_ID++);
+					preparedStatement.setString(2, journeys.get(i).getDeparture());
+					preparedStatement.setString(3, journeys.get(i).getReturnn());
+					preparedStatement.setString(4, journeys.get(i).getDeparture_station_id());
+					preparedStatement.setString(5, journeys.get(i).getDeparture_station_name());
+					preparedStatement.setString(6, journeys.get(i).getReturn_station_id());
+					preparedStatement.setString(7, journeys.get(i).getReturn_station_name());
+					preparedStatement.setDouble(8, journeys.get(i).getCovered_distance());
+					preparedStatement.setInt(9, journeys.get(i).getDuration());
 					// Step 3: Execute the query or update query
 					preparedStatement.addBatch();
 				}
@@ -72,7 +75,7 @@ public class InsertRecordToDB {
 			
 			 connection.setAutoCommit(false);
 			for (int i = 0; i < stations.size(); i++) {
-				preparedStatement.setInt(1, stations.get(i).getFid());
+				preparedStatement.setLong(1, stations.get(i).getFid());
 				preparedStatement.setString(2, stations.get(i).getId());
 				preparedStatement.setString(3, stations.get(i).getNimi());
 				preparedStatement.setString(4, stations.get(i).getNamn());
@@ -90,14 +93,14 @@ public class InsertRecordToDB {
 				else
 					preparedStatement.setString(9, stations.get(i).getStad());
 				
-				if(stations.get(i).getOperaattor().isEmpty())
+				if(stations.get(i).getOperaattori().isEmpty())
 					preparedStatement.setString(10, "CityBike Finland");
 				else
-					preparedStatement.setString(10, stations.get(i).getOperaattor());
+					preparedStatement.setString(10, stations.get(i).getOperaattori());
 				
 				preparedStatement.setInt(11, stations.get(i).getKapasiteet());
-				preparedStatement.setDouble(12, stations.get(i).getX());
-				preparedStatement.setDouble(13, stations.get(i).getY());
+				preparedStatement.setDouble(12, stations.get(i).getLongitude());
+				preparedStatement.setDouble(13, stations.get(i).getLatitude());
 				// System.out.println(preparedStatement);
 				// Step 3: Execute the query or update query
 				preparedStatement.addBatch();

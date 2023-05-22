@@ -2,14 +2,17 @@ package util;
 
 public class Util {
 	
+	
+	public static long JOURNEY_ID = 1;
+	
     public static final String INSERT_JOURNEYS_SQL = "INSERT INTO journeys" +
-            "  (departure, return, departure_station_id, departure_station_name, return_station_id, "
+            "  (id, departure, returnn, departure_station_id, departure_station_name, return_station_id, "
             + "return_station_name, covered_distance, duration) VALUES " +
-            " (?, ?, ?, ?, ? , ? , ? , ?);";
+            " (?, ?, ?, ?, ? , ? , ? , ?, ?);";
         
     public static final String INSERT_STATIONS_SQL = "INSERT INTO stations" +
                 "  (fid, id, nimi, namn, name, "
-                + "osoite, address, kaupunki, stad, operaattor, kapasiteet, x , y) VALUES " +
+                + "osoite, address, kaupunki, stad, operaattori, kapasiteet, longitude , latitude) VALUES " +
                 " (?, ?, ?, ?, ? , ? , ? , ?, ?, ?, ? ,? ,?);";
     
     public static final String[] dataFiles = {

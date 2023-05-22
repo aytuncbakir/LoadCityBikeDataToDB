@@ -3,7 +3,7 @@ package entity;
 public class Station {
 	
 //	FID,ID,Nimi,Namn,Name,Osoite,Adress,Kaupunki,Stad,Operaattor,Kapasiteet,x,y
-	private int fid;
+	private long fid;
 	private String id;
 	private String nimi;
 	private String namn;
@@ -12,12 +12,12 @@ public class Station {
 	private String address;
 	private String kaupunki;
 	private String stad;
-	private String operaattor;
+	private String operaattori;
 	private int kapasiteet;
-	private double x;
-	private double y;
-	public Station(int fid, String id, String nimi, String namn, String name, String osoite, String address,
-			String kaupunki, String stad, String operaattor, int kapasiteet, double x, double y) {
+	private double longitude;
+	private double latitude;
+	public Station(long fid, String id, String nimi, String namn, String name, String osoite, String address,
+			String kaupunki, String stad, String operaattori, int kapasiteet, double longitude, double latitude) {
 		super();
 		this.fid = fid;
 		this.id = id;
@@ -28,51 +28,89 @@ public class Station {
 		this.address = address;
 		this.kaupunki = kaupunki;
 		this.stad = stad;
-		this.operaattor = operaattor;
+		this.operaattori = operaattori;
 		this.kapasiteet = kapasiteet;
-		this.x = x;
-		this.y = y;
+		this.longitude = longitude;
+		this.latitude = latitude;
 	}
-	public int getFid() {
+	public long getFid() {
 		return fid;
+	}
+	public void setFid(long fid) {
+		this.fid = fid;
 	}
 	public String getId() {
 		return id;
 	}
+	public void setId(String id) {
+		this.id = id;
+	}
 	public String getNimi() {
 		return nimi;
+	}
+	public void setNimi(String nimi) {
+		this.nimi = nimi;
 	}
 	public String getNamn() {
 		return namn;
 	}
+	public void setNamn(String namn) {
+		this.namn = namn;
+	}
 	public String getName() {
 		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 	public String getOsoite() {
 		return osoite;
 	}
+	public void setOsoite(String osoite) {
+		this.osoite = osoite;
+	}
 	public String getAddress() {
 		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
 	}
 	public String getKaupunki() {
 		return kaupunki;
 	}
+	public void setKaupunki(String kaupunki) {
+		this.kaupunki = kaupunki;
+	}
 	public String getStad() {
 		return stad;
 	}
-	public String getOperaattor() {
-		return operaattor;
+	public void setStad(String stad) {
+		this.stad = stad;
+	}
+	public String getOperaattori() {
+		return operaattori;
+	}
+	public void setOperaattori(String operaattori) {
+		this.operaattori = operaattori;
 	}
 	public int getKapasiteet() {
 		return kapasiteet;
 	}
-	public double getX() {
-		return x;
+	public void setKapasiteet(int kapasiteet) {
+		this.kapasiteet = kapasiteet;
 	}
-	public double getY() {
-		return y;
+	public double getLongitude() {
+		return longitude;
 	}
-	
+	public void setLongitude(double longitude) {
+		this.longitude = longitude;
+	}
+	public double getLatitude() {
+		return latitude;
+	}
+	public void setLatitude(double latitude) {
+		this.latitude = latitude;
+	}
 	
 
 }
